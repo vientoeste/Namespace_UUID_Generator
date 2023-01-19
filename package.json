@@ -1,0 +1,29 @@
+{
+  "name": "namespace_uuid_generator",
+  "description": "Create Namespace UUID as per RFC standard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vientoeste/Namespace_UUID_Generator.git"
+  },
+  "keywords": [
+    "UUID",
+    "nodejs",
+    "namespace"
+  ],
+  "author": "este",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vientoeste/Namespace_UUID_Generator/issues"
+  },
+  "homepage": "https://github.com/vientoeste/Namespace_UUID_Generator#readme",
+  "type": "module",
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
+}
