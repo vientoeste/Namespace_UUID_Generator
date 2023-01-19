@@ -14,13 +14,11 @@ const createNamespace = (name) => {
     const hash = crypto.createHash('sha1').update(name).digest('hex');
     let namespace = hash.slice(0, 8).concat('-', hash.slice(8, 12), '-', '5', hash.slice(13, 16), '-', '$', hash.slice(17, 20), '-', hash.slice(20, 32));
 
-    let byte = [];
-    byte[0] = parseInt(parseInt(hash[16], '16') / 8);
-    byte[1] = parseInt((parseInt(hash[16], '16') - byte[0] * 8) / 4);
-    byte[2] = parseInt((parseInt(hash[16], '16') - byte[0] * 8 - byte[1] * 4) / 2);
-    byte[3] = parseInt((parseInt(hash[16], '16') - byte[0] * 8 - byte[1] * 4 - byte[2] * 2));
+    let partialByte = [];
+    partialByte[0] = parseInt((parseInt(hash[16], '16') % 4) / 2);
+    partialByte[1] = parseInt(hash[16], '16') % 2;
 
-    let digit = (8 + byte[2] * 2 + byte[3]).toString(16);
+    let digit = (8 + partialByte[0] * 2 + partialByte[1]).toString(16);
     namespace = namespace.replace(/\$/g, digit);
 
     if (validate) {
